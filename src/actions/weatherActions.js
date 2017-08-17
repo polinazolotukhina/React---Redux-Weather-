@@ -37,7 +37,7 @@ export function getWeather(params,) {
       ...params
     };
     const query = queryString.stringify(parameters);
-    const url = `http://api.openweathermap.org/data/2.5/weather?${query}`;
+    const url = `http://api.openweathermap.org/data/2.5/forecast?${query}`;
 
     return (dispatch) => {
         dispatch(weatherRequest());

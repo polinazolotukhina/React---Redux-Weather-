@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators} from 'redux';
 import * as actions from '../../actions/weatherActions';
 import List  from '../../components/List';
-const FontAwesome = require('react-fontawesome');
+// const FontAwesome = require('react-fontawesome');
+import Geosuggest from 'react-geosuggest';
 
 
 
@@ -12,16 +13,12 @@ class Weather extends React.Component {
     constructor(props){
         super(props);
          this.weatherOnSubmit = this.weatherOnSubmit.bind(this);
-         this.  handleTtype = this.handleTtype.bind(this);
          this.state = { input:''}
     }
-  handleTtype(e){
-     this.setState({ input: e.target.value })
-  }
-
-   weatherOnSubmit(){
+   weatherOnSubmit(suggest){
+     console.log('suggest', suggest);
      const params ={
-       q: this.state.input
+       q: suggest.gmaps.address_components[0].long_name
      }
      this.props.actions.getWeather(params);
    }
@@ -31,8 +28,8 @@ class Weather extends React.Component {
         return (
           <div className="container">
             Please choose your city:
-            <input onChange={ this.handleTtype}/>
-            <button onClick={this.weatherOnSubmit}> Submit</button>
+            <Geosuggest onSuggestSelect={this.weatherOnSubmit} />
+            <button type="button" onClick={this.weatherOnSubmit}> Submit</button>
             <List weatherprops={weather}  />
           </div>
 
@@ -43,7 +40,7 @@ class Weather extends React.Component {
 Weather.propTypes = {
     actions: PropTypes.object.isRequired,
     weather: PropTypes.object.isRequired,
-    city: PropTypes.any.isRequired,
+
 };
 
 
