@@ -30,6 +30,7 @@ class Weather extends React.Component {
    }
     render() {
        const { actions, weather } = this.props;
+       console.log("this is how it should look ", weather)
         return (
           <div>
                 {
