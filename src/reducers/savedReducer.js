@@ -4,13 +4,18 @@ import {
 import initialState from './initialState';
 
 
+function favouriteMovie(saved, itemToAdd){
+   return saved = [...saved, itemToAdd];
+}
+
+
+
 export default function savedReducer(state = initialState.saved, action) {
     switch (action.type) {
         case SAVED_WEATHER:
-          console.log('state', state);
           return {
             ...state,
-            saved: action.saved
+            saved: favouriteMovie( state.saved, action.saved)
           };
 
         default:

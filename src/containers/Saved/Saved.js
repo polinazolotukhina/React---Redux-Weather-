@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators} from 'redux';
 import * as actions from '../../actions/weatherActions';
 import SavedList  from '../../components/SavedList';
-
-// I probably should map the array or SAVED here instead of using <SavedList/>
+import ReactHighcharts from 'react-highcharts';
 
 class Saved extends React.Component {
     constructor(props){
@@ -14,31 +13,26 @@ class Saved extends React.Component {
 
     render() {
        const { actions, saved } = this.props;
-       console.log('saved', saved.saved.lenght)
+       console.log('saved', saved.saved);
         return (
-                <div className="container">
-                  {
-                    (saved.saved.length ===0) ? (
-                      <div> You have no saved weather </div>
-                    ) : (
+
                       <div>
                       <h4 className="text-center"> This is your saved weather:</h4>
-                        <SavedList  weatherprops={saved.saved}/>
+
+
+                      {
+                        saved && saved.saved.map((item, id) =>
+                        <SavedList key={id}
+                          weatherprops ={item}
+                          />
+                        )
+                      }
+
+
+
+
                       </div>
-                    )
 
-                  }
-
-
-
-
-
-
-
-
-
-
-                </div>
                 );
     }
 }
