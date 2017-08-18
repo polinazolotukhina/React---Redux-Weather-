@@ -27,6 +27,21 @@ function weatherFailure(json) {
         error: json
     };
 }
+// ------------------ SAVED------------------
+function saveIt(item) {
+    return {
+        type: types.SAVED_WEATHER,
+        saved: item
+    };
+}
+
+export function saveUnsave(city) {
+  return (dispatch) => {
+    dispatch(saveIt(city));
+  };
+}
+
+// ------------------------------------
 
 
 export function getWeather(params,) {

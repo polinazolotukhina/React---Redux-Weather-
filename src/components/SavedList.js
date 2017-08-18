@@ -10,10 +10,10 @@ export default class List extends Component {
 
   render() {
     const { weatherprops } = this.props;
+        console.log("Here is what you got", weatherprops )
     return (
       <div>
-        <h1 className="text-center">{ weatherprops.data.city && weatherprops.data.city.name }</h1>
-
+        <h1 className="text-center">{ weatherprops.city&&weatherprops.city.name }</h1>
         <ReactHighcharts
           config={
             {
@@ -24,18 +24,18 @@ export default class List extends Component {
                 text: `Weather Forcast For The Next 5 Days`
               },
               xAxis: {
-                categories: weatherprops.data.list && weatherprops.data.list.map( a => {return a.dt_txt})
+                categories: weatherprops.list && weatherprops.list.map( a => {return a.dt_txt})
               },
               series: [{
-                data: weatherprops.data.list && weatherprops.data.list.map( a => {return a.main.temp})
+                data: weatherprops.list && weatherprops.list.map( a => {return a.main.temp})
               },
               {
                 name: 'Humidity',
                 color: 'red',
-                data: weatherprops.data.list && weatherprops.data.list.map( a => {return a.main.humidity})
+                data: weatherprops.list && weatherprops.list.map( a => {return a.main.humidity})
               },
               { name: 'Pressure',
-                data: weatherprops.data.list && weatherprops.data.list.map( a => {return a.main.pressure})
+                data: weatherprops.list && weatherprops.list.map( a => {return a.main.pressure})
               }
 
               ]
@@ -44,6 +44,8 @@ export default class List extends Component {
           }
           >
           </ReactHighcharts>
+
+
       </div>
     );
   }

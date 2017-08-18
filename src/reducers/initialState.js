@@ -5,6 +5,9 @@ export default {
         isLoading: false,
         error: false
     },
-    city:''
+    city:'',
+    saved:{
+      saved: []
+    }
 
 };

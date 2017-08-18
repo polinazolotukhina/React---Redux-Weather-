@@ -13,12 +13,12 @@ const Navigation = () => {
                         <span className="icon-bar" />
                         <span className="icon-bar" />
                     </button>
-                    <IndexLink to="/" className="navbar-brand"><img src="../../styles/nasa-logo.svg"/></IndexLink>
+                    <IndexLink to="/" className="navbar-brand"><img src="../../styles/logo.svg"/></IndexLink>
                 </div>
                 <div id="navbar" className="navbar-collapse collapse">
                     <ul className="nav navbar-nav">
                         <li>
-                            <Link to="/weather">Weather</Link>
+                            <Link to="/Saved">Saved Weather Forecast</Link>
                         </li>
                     </ul>
                </div>

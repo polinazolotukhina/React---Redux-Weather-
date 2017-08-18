@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators} from 'redux';
 import * as actions from '../../actions/weatherActions';
 import List  from '../../components/List';
+import SavedButton  from '../../components/SavedButton';
 // const FontAwesome = require('react-fontawesome');
 import Geosuggest from 'react-geosuggest';
+
+
 
 
 
@@ -13,7 +16,7 @@ class Weather extends React.Component {
     constructor(props){
         super(props);
          this.weatherOnSubmit = this.weatherOnSubmit.bind(this);
-         this.state = { input:''}
+         this.saveToSaved = this.saveToSaved.bind(this);
     }
    weatherOnSubmit(suggest){
      console.log('suggest', suggest);
@@ -22,20 +25,37 @@ class Weather extends React.Component {
      }
      this.props.actions.getWeather(params);
    }
-
+   saveToSaved(){
+     this.props.actions.saveUnsave();
+   }
     render() {
-       const { actions, weather, city } = this.props;
+       const { actions, weather } = this.props;
         return (
-          <div className="container">
-            Please choose your city:
-            <Geosuggest onSuggestSelect={this.weatherOnSubmit} />
-            <button type="button" onClick={this.weatherOnSubmit}> Submit</button>
-            <List weatherprops={weather}  />
+          <div>
+                {
+                    (weather.data.length !=  0 ) ?
+                    (
+                      <div className="container">
+                        <Geosuggest  className="text-center" placeholder="Please choose your city" onSuggestSelect={this.weatherOnSubmit} />
+                        <List  weatherprops={weather}/>
+                        <SavedButton  city={weather.data} passedActions={actions} />
+                      </div>
+
+                    ):(
+                      <div className="container">
+                        <Geosuggest  className="text-center" placeholder="Please choose your city" onSuggestSelect={this.weatherOnSubmit} />
+                      </div>
+
+                    )
+                }
+
           </div>
+
 
         );
     }
 }
+
 
 Weather.propTypes = {
     actions: PropTypes.object.isRequired,
