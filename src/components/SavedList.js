@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 import  ReactDOM from 'react-dom';
-
-
 import ReactHighcharts from 'react-highcharts';
 
 
 
 export default class List extends Component {
-
+  constructor(props){
+      super(props);
+  }
 
   render() {
-    const { weatherprops } = this.props;
+    const { weatherprops, actions, city } = this.props;
     return (
-
       <div>
         <h1 className="text-center">{ weatherprops.city&&weatherprops.city.name }</h1>
         <ReactHighcharts
@@ -45,6 +44,7 @@ export default class List extends Component {
           }
           >
           </ReactHighcharts>
+          <button onClick= {() => { actions.saveUnsave(city)}}>Remove this forecast</button>
 
 
       </div>

@@ -6,6 +6,7 @@ import * as actions from '../../actions/weatherActions';
 import List  from '../../components/List';
 import SavedButton  from '../../components/SavedButton';
 import Geosuggest from 'react-geosuggest';
+import {Button } from 'react-bootstrap';
 
 
 
@@ -33,9 +34,12 @@ class Weather extends React.Component {
                     (weather.data.length !=  0 ) ?
                     (
                       <div className="container">
-                        <Geosuggest  className="text-center" placeholder="Please choose your city" onSuggestSelect={this.weatherOnSubmit} />
+                        <Geosuggest ref={el=>this._geoSuggest=el}  className="text-center" placeholder="Please choose your city" onSuggestSelect={this.weatherOnSubmit} />
+                        <Button className="clear" onClick={()=>this._geoSuggest.clear()}>Clear</Button>
                         <List  weatherprops={weather}/>
                         <SavedButton  city={weather.data} saved={saved.saved} passedActions={actions} />
+
+
                       </div>
 
                     ):(

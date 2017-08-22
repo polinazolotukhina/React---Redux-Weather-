@@ -18,7 +18,7 @@ const Navigation = () => {
                 <div id="navbar" className="navbar-collapse collapse">
                     <ul className="nav navbar-nav">
                         <li>
-                            <Link to="/Saved">Saved Weather Forecast</Link>
+                            <Link to="/Saved">My Saved Weather</Link>
                         </li>
                     </ul>
                </div>

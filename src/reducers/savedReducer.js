@@ -4,8 +4,24 @@ import {
 import initialState from './initialState';
 
 
-function favouriteMovie(saved, itemToAdd){
-   return saved = [...saved, itemToAdd];
+// function savedWeather(saved, itemToAdd){
+//    return saved = [...saved, itemToAdd];
+// }
+function savedWeather(saved, itemToAdd){
+  var savednew = []
+  const existing = saved.some(function (el) {
+     return el.city.id === itemToAdd.city.id;
+   });
+   if (!existing) {
+       savednew = [...saved, itemToAdd];
+    } else{
+      savednew = saved.filter(function(a){
+        return a.city.id != itemToAdd.city.id;
+      })
+    }
+
+    return savednew;
+
 }
 
 
@@ -15,7 +31,7 @@ export default function savedReducer(state = initialState.saved, action) {
         case SAVED_WEATHER:
           return {
             ...state,
-            saved: favouriteMovie( state.saved, action.saved)
+            saved: savedWeather( state.saved, action.saved)
           };
 
         default:

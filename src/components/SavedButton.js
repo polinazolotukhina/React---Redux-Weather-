@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button } from 'react-bootstrap';
+import Notifications, {notify} from 'react-notify-toast';
 
 class SavedButton extends React.Component {
   constructor(props){
@@ -8,14 +9,13 @@ class SavedButton extends React.Component {
 
   }
 
-  alertClicked() {
-    alert('It was saved to your list!' );
-  }
-  saveWeather(){
 
+  saveWeather(){
+    let myColor = { background: '#ff8c18', text: "#FFFFFF" };
     this.props.passedActions.saveUnsave(this.props.city);
-    this.alertClicked();
+    notify.show('It was saved to your list "My Saved Weather"!',"custom", 5000, myColor)
   }
+
 
 
 
@@ -28,11 +28,9 @@ class SavedButton extends React.Component {
     );
     const { passedActions, city, saved } = this.props;
     const label = (saved.filter(e => e.city.id == city.city.id).length > 0) ? 'The Forecast Was Saved ' : 'Save The Forecast';
-
-
-    console.log('button city', city)
         return (
           <div  className="text-center"  >
+           <Notifications />
 
           {
             (saved.filter(e => e.city.id == city.city.id).length == 0) ? (
