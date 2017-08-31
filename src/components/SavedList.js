@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import  ReactDOM from 'react-dom';
 
+
 import ReactHighcharts from 'react-highcharts';
 
 
@@ -10,8 +11,8 @@ export default class List extends Component {
 
   render() {
     const { weatherprops } = this.props;
-        console.log("Here is what you got", weatherprops )
     return (
+
       <div>
         <h1 className="text-center">{ weatherprops.city&&weatherprops.city.name }</h1>
         <ReactHighcharts

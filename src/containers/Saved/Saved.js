@@ -6,6 +6,7 @@ import * as actions from '../../actions/weatherActions';
 import SavedList  from '../../components/SavedList';
 import ReactHighcharts from 'react-highcharts';
 
+
 class Saved extends React.Component {
     constructor(props){
         super(props);
@@ -13,23 +14,31 @@ class Saved extends React.Component {
 
     render() {
        const { actions, saved } = this.props;
-       console.log('saved', saved.saved);
         return (
 
                       <div>
-                      <h4 className="text-center"> This is your saved weather:</h4>
-
 
                       {
-                        saved && saved.saved.map((item, id) =>
-                        <SavedList key={id}
-                          weatherprops ={item}
-                          />
+                        (saved.saved.length ===0) ? (
+                          <div>  <h4 className="text-center"> You have no saved weather </h4></div>
+                        ) : (
+                          <div>
+                          <h4 className="text-center"> This is your saved weather:</h4>
+
+
+
+                          {
+                            saved && saved.saved.map((item, id) =>
+                            <SavedList key={id}
+                              weatherprops ={item}
+                              />
+                            )
+                          }
+                          </div>
+
                         )
+
                       }
-
-
-
 
                       </div>
 

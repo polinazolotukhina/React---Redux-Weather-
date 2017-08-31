@@ -5,9 +5,7 @@ import { bindActionCreators} from 'redux';
 import * as actions from '../../actions/weatherActions';
 import List  from '../../components/List';
 import SavedButton  from '../../components/SavedButton';
-// const FontAwesome = require('react-fontawesome');
 import Geosuggest from 'react-geosuggest';
-
 
 
 
@@ -19,7 +17,6 @@ class Weather extends React.Component {
          this.saveToSaved = this.saveToSaved.bind(this);
     }
    weatherOnSubmit(suggest){
-     console.log('suggest', suggest);
      const params ={
        q: suggest.gmaps.address_components[0].long_name
      }
@@ -29,7 +26,7 @@ class Weather extends React.Component {
      this.props.actions.saveUnsave();
    }
     render() {
-       const { actions, weather } = this.props;
+       const { actions, weather, saved } = this.props;
         return (
           <div>
                 {
@@ -38,7 +35,7 @@ class Weather extends React.Component {
                       <div className="container">
                         <Geosuggest  className="text-center" placeholder="Please choose your city" onSuggestSelect={this.weatherOnSubmit} />
                         <List  weatherprops={weather}/>
-                        <SavedButton  city={weather.data} passedActions={actions} />
+                        <SavedButton  city={weather.data} saved={saved.saved} passedActions={actions} />
                       </div>
 
                     ):(
@@ -60,17 +57,19 @@ class Weather extends React.Component {
 Weather.propTypes = {
     actions: PropTypes.object.isRequired,
     weather: PropTypes.object.isRequired,
+    saved: PropTypes.object.isRequired
 
 };
 
 
 function mapStateToProps(state) {
-    const { weather, isLoading, error, city  } = state;
+    const { weather, isLoading, error, city, saved  } = state;
     return {
         weather,
         isLoading,
         error,
-        city
+        city,
+        saved
     };
 }
 
