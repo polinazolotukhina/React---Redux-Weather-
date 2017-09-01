@@ -2,7 +2,7 @@
 
 
 
-**Clone the project**. git clone https://github.com/polinazolotukhina/Redux-NASA.git.
+**Clone the project**. git clone https://github.com/polinazolotukhina/React---Redux-Weather-.git
 
 **Go to the folder **. cd Redux-NASA
 
