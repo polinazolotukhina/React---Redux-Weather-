@@ -10,7 +10,7 @@
 
 **Run **. npm start -s
 
-Choose a place
+Choose a place to see the forecast, you can also save it to "Saved weather"
 
 ![Alt text](https://github.com/polinazolotukhina/React---Redux-Weather-/blob/master/Screen%20Shot%202017-12-08%20at%205.50.42%20PM.png?raw=true)
 
