@@ -1,5 +1,4 @@
 import React from "react";
-// import DayPicker, { DateUtils } from "react-day-picker-substyled";
 import DayPicker from "react-day-picker";
 
 const selectedDayStyle = {
@@ -25,14 +24,12 @@ const style = {
 };
 
 export default class SelectableDay extends React.Component {
-  constructor(props){
+  constructor(props) {
       super(props);
       this.state = {
         selectedDay: null
       };
   }
-
-
 
   handleDayClick(e, day, modifiers) {
     this.setState({

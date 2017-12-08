@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
-import routes from '../routes';
 import { Router } from 'react-router';
+import routes from '../routes';
+
 
 export default class Root extends Component {
     render() {

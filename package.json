@@ -39,6 +39,7 @@
     "react-dom": "15.5.4",
     "react-fontawesome": "1.6.1",
     "react-geosuggest": "2.4.0",
+    "react-highcharts": "15.0.0",
     "react-notify-toast": "0.3.1",
     "react-redux": "5.0.5",
     "react-redux-spinner": "0.7.2",
