@@ -14,11 +14,13 @@
 
 ![Alt text](https://github.com/polinazolotukhina/React---Redux-Weather-/blob/master/Screen%20Shot%202017-12-08%20at%205.50.42%20PM.png?raw=true)
 
-![Alt text](https://github.com/polinazolotukhina/React---Redux-Weather-/blob/master/Screen%20Shot%202017-12-08%20at%205.51.20%20PM.png.png?raw=true)
-
 
 
 ![Alt text](https://github.com/polinazolotukhina/React---Redux-Weather-/blob/master/Screen%20Shot%202017-12-08%20at%205.52.01%20PM.png?raw=true)
+
+
+![Alt text](https://github.com/polinazolotukhina/React---Redux-Weather-/blob/master/Screen%20Shot%202017-12-08%20at%205.51.20%20PM.png.png?raw=true)
+
 
 
 
